@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Viola-Jones | IVA VisionLab</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+
+        nav {
+            background: #0f2747;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h2 {
+            color: white;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 900px;
+            margin: 50px auto;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .title h1 {
+            color: #0f2747;
+            margin-bottom: 10px;
+        }
+
+        .title p {
+            color: #64748b;
+        }
+
+        .upload-box {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        input[type="file"] {
+            margin: 25px 0;
+            padding: 12px;
+            width: 100%;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+        }
+
+        button {
+            background: #0f2747;
+            color: white;
+            border: none;
+            padding: 13px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #1d4e89;
+        }
+
+        .result {
+            margin-top: 35px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .result img {
+            max-width: 100%;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+
+        .info {
+            margin-top: 35px;
+            background: #eaf2ff;
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        .info h2 {
+            color: #0f2747;
+            margin-bottom: 10px;
+        }
+
+        .info p {
+            line-height: 1.7;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <h2>IVA VisionLab</h2>
+        <a href="/">← Back to Home</a>
+    </nav>
+
+    <div class="container">
+
+        <div class="title">
+            <h1>👤 Viola–Jones Face Detection</h1>
+            <p>Detect human faces from an uploaded image using the Viola–Jones algorithm.</p>
+        </div>
+
+        <div class="upload-box">
+
+            <form method="POST" enctype="multipart/form-data">
+
+                <label><strong>Select an image</strong></label>
+
+                <input
+                    type="file"
+                    name="image"
+                    accept="image/*"
+                    required
+                >
+
+                <br>
+
+                <button type="submit">
+                    Detect Faces
+                </button>
+
+            </form>
+
+        </div>
+
+        {% if result_image %}
+
+        <div class="result">
+
+            <h2>Detection Result</h2>
+
+            <p>
+                Faces detected:
+                <strong>{{ face_count }}</strong>
+            </p>
+
+            <img
+                src="data:image/jpeg;base64,{{ result_image }}"
+                alt="Face Detection Result"
+            >
+
+        </div>
+
+        {% endif %}
+
+        <div class="info">
+
+            <h2>How Viola–Jones Works</h2>
+
+            <p>
+                The Viola–Jones algorithm is a classical computer vision
+                technique used for fast object detection, especially face
+                detection. It uses Haar-like features, an integral image,
+                AdaBoost and a cascade classifier to detect faces efficiently.
+            </p>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

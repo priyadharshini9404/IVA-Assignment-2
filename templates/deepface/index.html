@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DeepFace | IVA VisionLab</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+            color: #1e293b;
+        }
+
+        nav {
+            background: #0f172a;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1000px;
+            margin: 50px auto;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 36px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 40px;
+        }
+
+        .upload-box {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        input[type="file"] {
+            margin: 20px 0;
+            padding: 10px;
+        }
+
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 13px 28px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .result {
+            margin-top: 40px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .result h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .result img {
+            display: block;
+            max-width: 500px;
+            width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+
+        .details {
+            background: #f1f5f9;
+            padding: 20px;
+            border-radius: 10px;
+            line-height: 1.8;
+            margin-top: 20px;
+        }
+
+        .info {
+            background: white;
+            margin-top: 35px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .info h2 {
+            margin-bottom: 15px;
+        }
+
+        .info p {
+            line-height: 1.7;
+            color: #475569;
+        }
+
+        @media (max-width: 600px) {
+            .title {
+                font-size: 28px;
+            }
+
+            .container {
+                width: 92%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">IVA VisionLab</div>
+        <a href="/">← Back to Home</a>
+    </nav>
+
+    <div class="container">
+
+        <h1 class="title">🧠 DeepFace</h1>
+
+        <p class="subtitle">
+            AI-based facial analysis using deep learning
+        </p>
+
+        <div class="upload-box">
+
+            <h2>Upload a Face Image</h2>
+
+            <form action="/deepface" method="POST" enctype="multipart/form-data">
+
+                <input
+                    type="file"
+                    name="image"
+                    accept="image/*"
+                    required
+                >
+
+                <br>
+
+                <button type="submit">
+                    Analyze Face
+                </button>
+
+            </form>
+
+        </div>
+
+
+        {% if result_text %}
+
+        <div class="result">
+
+            <h2>Analysis Result</h2>
+
+            {% if result_image %}
+
+            <img
+                src="data:image/jpeg;base64,{{ result_image }}"
+                alt="DeepFace Result"
+            >
+
+            {% endif %}
+
+            <div class="details">
+
+                <p>
+                    <strong>Age:</strong>
+                    {{ result_text.get("age", "N/A") }}
+                </p>
+
+                <p>
+                    <strong>Gender:</strong>
+                    {{ result_text.get("dominant_gender", "N/A") }}
+                </p>
+
+                <p>
+                    <strong>Emotion:</strong>
+                    {{ result_text.get("dominant_emotion", "N/A") }}
+                </p>
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+
+        <div class="info">
+
+            <h2>About DeepFace</h2>
+
+            <p>
+                DeepFace is a deep-learning based facial analysis framework.
+                It can analyze a face image and identify attributes such as
+                estimated age, gender and dominant emotion.
+            </p>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

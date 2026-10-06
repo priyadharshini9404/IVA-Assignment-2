@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IVA VisionLab</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: #172554;
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 15px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 7%;
+            text-align: center;
+            background: linear-gradient(135deg, #dbeafe, #eff6ff);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            color: #172554;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 19px;
+            color: #475569;
+            max-width: 750px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        .hero-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 13px 28px;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        /* Features */
+        .features {
+            padding: 60px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            color: #172554;
+        }
+
+        .section-title p {
+            margin-top: 10px;
+            color: #64748b;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px 22px;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+        }
+
+        .icon {
+            font-size: 45px;
+            margin-bottom: 18px;
+        }
+
+        .card h3 {
+            color: #172554;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #64748b;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        .card-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 9px 18px;
+            background: #e0ecff;
+            color: #1d4ed8;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* About */
+        .about {
+            padding: 60px 7%;
+            background: white;
+            text-align: center;
+        }
+
+        .about h2 {
+            color: #172554;
+            margin-bottom: 15px;
+        }
+
+        .about p {
+            max-width: 800px;
+            margin: auto;
+            line-height: 1.7;
+            color: #64748b;
+        }
+
+        /* Footer */
+        footer {
+            background: #172554;
+            color: white;
+            text-align: center;
+            padding: 22px;
+            font-size: 14px;
+        }
+
+        /* Mobile */
+        @media (max-width: 900px) {
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 35px;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">IVA VisionLab</div>
+
+        <div>
+            <a href="/">Home</a>
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <h1>Image & Video Analytics</h1>
+
+        <p>
+            Explore computer vision techniques for object matching,
+            face detection, face analysis and face recognition through
+            an interactive web-based laboratory.
+        </p>
+
+        <a href="#features" class="hero-button">
+            Explore Features
+        </a>
+
+    </section>
+
+
+    <!-- Features -->
+    <section class="features" id="features">
+
+        <div class="section-title">
+            <h2>IVA Techniques</h2>
+
+            <p>
+                Four important computer vision techniques demonstrated
+                through one interactive website.
+            </p>
+        </div>
+
+
+        <div class="cards">
+
+            <!-- Template Matching -->
+            <div class="card">
+
+                <div class="icon">🔎</div>
+
+                <h3>Template Matching</h3>
+
+                <p>
+                    Locate a template image inside a larger image
+                    using similarity-based image matching.
+                </p>
+
+                <a href="/template-matching" class="card-button">
+                    Explore
+                </a>
+
+            </div>
+
+
+            <!-- Viola Jones -->
+            <div class="card">
+
+                <div class="icon">👤</div>
+
+                <h3>Viola–Jones</h3>
+
+                <p>
+                    Detect human faces using Haar-like features,
+                    AdaBoost and a cascade classifier.
+                </p>
+
+                <a href="/viola-jones" class="card-button">
+                    Explore
+                </a>
+
+            </div>
+
+
+            <!-- DeepFace -->
+            <div class="card">
+
+                <div class="icon">🧠</div>
+
+                <h3>DeepFace</h3>
+
+                <p>
+                    Perform deep-learning based facial analysis
+                    and face recognition.
+                </p>
+
+                <a href="/deepface" class="card-button">
+                    Explore
+                </a>
+
+            </div>
+
+
+            <!-- FaceNet -->
+            <div class="card">
+
+                <div class="icon">🔐</div>
+
+                <h3>FaceNet</h3>
+
+                <p>
+                    Convert faces into numerical embeddings and
+                    compare facial similarity.
+                </p>
+
+                <a href="/facenet" class="card-button">
+                    Explore
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- About -->
+    <section class="about" id="about">
+
+        <h2>About This Project</h2>
+
+        <p>
+            IVA VisionLab is an educational Image and Video Analytics
+            project developed to demonstrate classical and deep-learning
+            based computer vision techniques. The platform combines
+            Template Matching, Viola–Jones, DeepFace and FaceNet into
+            a single interactive web experience.
+        </p>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            IVA VisionLab | Image & Video Analytics Assignment
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
