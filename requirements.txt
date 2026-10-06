@@ -7,3 +7,4 @@ tensorflow
 facenet-pytorch==2.6.0
 torch
 Pillow
+gunicorn
