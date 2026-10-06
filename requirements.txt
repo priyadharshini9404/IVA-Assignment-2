@@ -3,9 +3,7 @@ numpy
 opencv-python==4.10.0.84
 deepface==0.0.101
 tf-keras
-tensorflow
 facenet-pytorch==2.6.0
 torch
 Pillow
-gunicorn
 streamlit
